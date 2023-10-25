@@ -1,0 +1,19 @@
+version: "3"
+services:
+  app:
+    build: .
+    environment:
+      TZ: Asia/Tokyo
+      LC_CTYPE: C.UTF-8
+      FLASK_APP: "app.py"
+      FLASK_ENV: "development"
+    volumes:
+      - .:/myapp
+      - modules:/usr/local/lib/python3.11/site-packages
+    ports:
+      - "8080:8080"
+    tty: true
+    stdin_open: true
+
+volumes:
+  modules:
